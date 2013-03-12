@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=latex 2013.3.11)  11 MAR 2013 22:58
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=latex 2013.3.11)  11 MAR 2013 23:56
 entering extended mode
-**msc.tex
-(C:\Users\mariusz\Desktop\MariuszGomseMasterThesis\msc.tex
+**MSc.tex
+(C:\Users\mariusz\Documents\GitHub\PracaMagisterska\MSc.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -344,7 +344,7 @@ Package verse [2008/07/23] emulated by memoir.
  (C:\Tex\tex\latex\memoir\mempatch.sty
 Package: mempatch 2009/07/24 v6.0f Patches for memoir class v1.6180339
 ))
-(C:\Users\mariusz\Desktop\MariuszGomseMasterThesis\style.tex
+(C:\Users\mariusz\Documents\GitHub\PracaMagisterska\style.tex
 (C:\Tex\tex\latex\graphics\graphicx.sty
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
  (C:\Tex\tex\latex\graphics\keyval.sty
@@ -541,9 +541,9 @@ Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
 File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
 ))
-\msc@idxfile=\write4
+\MSc@idxfile=\write4
 
-Writing index file msc.idx 
+Writing index file MSc.idx 
 (C:\Tex\tex\latex\citeref\citeref.sty
 Package: citeref 1999/27/05
 
@@ -724,12 +724,12 @@ Sidefootvsep and sidefootheight: 13.6pt and 594.32022pt
 
 )
 \@input{front.aux}
-(C:\Users\mariusz\Desktop\MariuszGomseMasterThesis\front.tex)
+(C:\Users\mariusz\Documents\GitHub\PracaMagisterska\front.tex)
 
 LaTeX Warning: Unused global option(s):
     [makeidx].
 
-(C:\Users\mariusz\Desktop\MariuszGomseMasterThesis\msc.aux)
+(C:\Users\mariusz\Documents\GitHub\PracaMagisterska\MSc.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
 LaTeX Font Info:    ... okay on input line 8.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 8.
@@ -763,8 +763,8 @@ LaTeX Info: Redefining \nameref on input line 8.
 LaTeX Info: Redefining \ref on input line 8.
 LaTeX Info: Redefining \pageref on input line 8.
 LaTeX Info: Redefining \nameref on input line 8.
-(C:\Users\mariusz\Desktop\MariuszGomseMasterThesis\msc.out)
-(C:\Users\mariusz\Desktop\MariuszGomseMasterThesis\msc.out)
+(C:\Users\mariusz\Documents\GitHub\PracaMagisterska\MSc.out)
+(C:\Users\mariusz\Documents\GitHub\PracaMagisterska\MSc.out)
 \@outlinefile=\write5
 LaTeX Font Info:    Try loading font information for OML+plm on input line 11.
 
@@ -820,7 +820,7 @@ Overfull \hbox (12.0pt too wide) in alignment at lines 11--11
 [] 
  []
 
-(C:\Users\mariusz\Desktop\MariuszGomseMasterThesis\front.tex [1
+(C:\Users\mariusz\Documents\GitHub\PracaMagisterska\front.tex [1
 
 
 
@@ -834,81 +834,73 @@ LaTeX Font Info:    Try loading font information for T1+cmss on input line 17.
 (C:\Tex\tex\latex\base\t1cmss.fd
 File: t1cmss.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-(C:\Users\mariusz\Desktop\MariuszGomseMasterThesis\msc.toc [1
+(C:\Users\mariusz\Documents\GitHub\PracaMagisterska\MSc.toc [1
 
 ])
-(C:\Users\mariusz\Desktop\MariuszGomseMasterThesis\ack//ack.tex [2])
-(C:\Users\mariusz\Desktop\MariuszGomseMasterThesis\chap1//chap1.tex [3
+(C:\Users\mariusz\Documents\GitHub\PracaMagisterska\chap1//chap1.tex [2])
+(C:\Users\mariusz\Documents\GitHub\PracaMagisterska\chap2//chap2.tex [3
 
 ]
 [4
 
-]) (C:\Users\mariusz\Desktop\MariuszGomseMasterThesis\chap2//chap2.tex
+]) (C:\Users\mariusz\Documents\GitHub\PracaMagisterska\chap3//chap3.tex
 [5] [6
 
-]) (C:\Users\mariusz\Desktop\MariuszGomseMasterThesis\chap3//chap3.tex
+]) (C:\Users\mariusz\Documents\GitHub\PracaMagisterska\chap4//chap4.tex
 [7] [8
 
-]) (C:\Users\mariusz\Desktop\MariuszGomseMasterThesis\chap4//chap4.tex
+]) (C:\Users\mariusz\Documents\GitHub\PracaMagisterska\chap5//chap5.tex
 [9] [10
 
-]) (C:\Users\mariusz\Desktop\MariuszGomseMasterThesis\chap5//chap5.tex
-[11] [12
-
-]) (C:\Users\mariusz\Desktop\MariuszGomseMasterThesis\msc.bbl [13]
-[14
+]) (C:\Users\mariusz\Documents\GitHub\PracaMagisterska\MSc.bbl [11]
+[12
 
 ]
 bibitemlist
-) [15] [16
+) [13] [14
 
-] [17] [18]
-(C:\Users\mariusz\Desktop\MariuszGomseMasterThesis\app1//app1.tex) [19
+] [15] [16]
+(C:\Users\mariusz\Documents\GitHub\PracaMagisterska\app1//app1.tex) [17
 
 ]
-[20
+[18
 
-] (C:\Users\mariusz\Desktop\MariuszGomseMasterThesis\back.tex
-(C:\Users\mariusz\Desktop\MariuszGomseMasterThesis\symbols.tex [21
+] (C:\Users\mariusz\Documents\GitHub\PracaMagisterska\back.tex
+(C:\Users\mariusz\Documents\GitHub\PracaMagisterska\symbols.tex [19
 
 
 
-] [22
+] [20
 
 
 ])
-[23] (C:\Users\mariusz\Desktop\MariuszGomseMasterThesis\msc.lof) [24
+[21] (C:\Users\mariusz\Documents\GitHub\PracaMagisterska\MSc.lof) [22
 
 ]
-(C:\Users\mariusz\Desktop\MariuszGomseMasterThesis\msc.lot)
-(C:\Users\mariusz\Desktop\MariuszGomseMasterThesis\msc.ind [25
+(C:\Users\mariusz\Documents\GitHub\PracaMagisterska\MSc.lot)
+No file MSc.ind.
+) [23
 
-] [26
-
-] [27
-
-
-]))
+]
 \tf@toc=\write6
 \tf@lof=\write7
 \tf@lot=\write8
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 37.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 37.
-
-(C:\Users\mariusz\Desktop\MariuszGomseMasterThesis\msc.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 37.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 37.
-Package rerunfilecheck Info: File `msc.out' has not changed.
-(rerunfilecheck)             Checksum: F626B1D873354B47B578A348A379B4F2;1536.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 37.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 36.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 36.
+ (C:\Users\mariusz\Documents\GitHub\PracaMagisterska\MSc.aux)
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 36.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 36.
+Package rerunfilecheck Info: File `MSc.out' has not changed.
+(rerunfilecheck)             Checksum: 0DB43C6C50E35175367E8A89EF2054A3;1489.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 36.
  ) 
 Here is how much of TeX's memory you used:
- 10142 strings out of 493922
- 140320 string characters out of 3155720
- 252008 words of memory out of 3000000
- 13224 multiletter control sequences out of 15000+200000
+ 10130 strings out of 493922
+ 139992 string characters out of 3155720
+ 252009 words of memory out of 3000000
+ 13219 multiletter control sequences out of 15000+200000
  24964 words of font info for 55 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  35i,12n,29p,269b,375s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on msc.dvi (29 pages, 43836 bytes).
+Output written on MSc.dvi (25 pages, 39884 bytes).
