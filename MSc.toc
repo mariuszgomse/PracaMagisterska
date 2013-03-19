@@ -3,24 +3,37 @@
 \contentsline {chapter}{Spis tre\'sci}{1}{section*.1}
 \contentsline {chapter}{\chapternumberline {1}Wst\k ep}{3}{chapter.1}
 \contentsline {section}{\numberline {1.1}Wprowadzenie}{3}{section.1.1}
-\contentsline {section}{\numberline {1.2}Motywacja}{3}{section.1.2}
-\contentsline {section}{\numberline {1.3}Wytwarzanie mowy}{3}{section.1.3}
-\contentsline {section}{\numberline {1.4}Sygna\IeC {\l } mowy}{3}{section.1.4}
-\contentsline {section}{\numberline {1.5}Model uk\IeC {\l }adu s\IeC {\l }uchowego}{3}{section.1.5}
-\contentsline {section}{\numberline {1.6}Cel i za\IeC {\l }o\.zenia pracy}{3}{section.1.6}
-\contentsline {chapter}{\chapternumberline {2}Podstawy teoretyczne}{5}{chapter.2}
-\contentsline {section}{\numberline {2.1}Klasyfikacja r\'o\.znych system\'ow rozpoznawania mowy}{5}{section.2.1}
-\contentsline {section}{\numberline {2.2}Model akustyczny}{5}{section.2.2}
-\contentsline {section}{\numberline {2.3}Model j\k ezyka}{5}{section.2.3}
-\contentsline {section}{\numberline {2.4}Schemat przetwarzania}{5}{section.2.4}
-\contentsline {section}{\numberline {2.5}Przegl\k ad istniej\k acych rozwi\k aza\'n}{5}{section.2.5}
-\contentsline {section}{\numberline {2.6}Wyb\'or technologii}{5}{section.2.6}
-\contentsline {chapter}{\chapternumberline {3}Projektowanie i tworzenie systemu}{7}{chapter.3}
-\contentsline {chapter}{\chapternumberline {4}Testowanie i eksperymenty}{9}{chapter.4}
-\contentsline {chapter}{\chapternumberline {5}Zako\'nczenie}{11}{chapter.5}
-\contentsline {chapter}{Bibliografia}{13}{section*.3}
-\contentsline {appendix}{\chapternumberline {A}Spis zawarto\'sci za\IeC {\l }\k aczonej p\IeC {\l }yty}{17}{appendix.A}
-\contentsline {chapter}{Spis skr\'ot\'ow}{19}{appendix*.4}
-\contentsline {chapter}{Spis symboli}{21}{appendix*.5}
-\contentsline {chapter}{Spis rysunk\'ow}{22}{section*.6}
-\contentsline {chapter}{Spis tabel}{23}{section*.7}
+\contentsline {section}{\numberline {1.2}G\IeC {\l }\'owny cel pracy}{3}{section.1.2}
+\contentsline {section}{\numberline {1.3}Metody realizacji pracy}{3}{section.1.3}
+\contentsline {section}{\numberline {1.4}Otrzymane wyniki}{4}{section.1.4}
+\contentsline {chapter}{\chapternumberline {2}Istniej\k ace rozwi\k azania i prowadzone badania}{5}{chapter.2}
+\contentsline {section}{\numberline {2.1}Wprowadzenie}{5}{section.2.1}
+\contentsline {section}{\numberline {2.2}Klasyfikacja}{6}{section.2.2}
+\contentsline {section}{\numberline {2.3}Narz\k edzia}{6}{section.2.3}
+\contentsline {section}{\numberline {2.4}Firmy, konsorcja, organizacje}{6}{section.2.4}
+\contentsline {section}{\numberline {2.5}Przyk\IeC {\l }ady}{6}{section.2.5}
+\contentsline {chapter}{\chapternumberline {3}Emotiv Epoch - narz\k edzie wybrane do realizacji systemu}{7}{chapter.3}
+\contentsline {section}{\numberline {3.1}Motywacja}{7}{section.3.1}
+\contentsline {section}{\numberline {3.2}Opis sprz\k etu}{7}{section.3.2}
+\contentsline {section}{\numberline {3.3}Opis API}{7}{section.3.3}
+\contentsline {chapter}{\chapternumberline {4}Projekt systemu}{9}{chapter.4}
+\contentsline {section}{\numberline {4.1}Streszczenie}{9}{section.4.1}
+\contentsline {section}{\numberline {4.2}Specyfikacja}{9}{section.4.2}
+\contentsline {section}{\numberline {4.3}Architektura}{9}{section.4.3}
+\contentsline {section}{\numberline {4.4}Interfejsy}{9}{section.4.4}
+\contentsline {section}{\numberline {4.5}Funkcje}{9}{section.4.5}
+\contentsline {section}{\numberline {4.6}Wymagania}{9}{section.4.6}
+\contentsline {chapter}{\chapternumberline {5}Przeprowadzone testy}{11}{chapter.5}
+\contentsline {section}{\numberline {5.1}Za\IeC {\l }o\.zenia}{11}{section.5.1}
+\contentsline {section}{\numberline {5.2}Cele}{11}{section.5.2}
+\contentsline {section}{\numberline {5.3}Zestawienie wynik\'ow}{11}{section.5.3}
+\contentsline {section}{\numberline {5.4}Teoria a rzeczywisto\'s\'c}{11}{section.5.4}
+\contentsline {chapter}{\chapternumberline {6}Uwagi ko\'ncowe}{13}{chapter.6}
+\contentsline {section}{\numberline {6.1}Osi\k agni\k ecia}{13}{section.6.1}
+\contentsline {section}{\numberline {6.2}Perspektywy wykorzystania systemu}{13}{section.6.2}
+\contentsline {chapter}{Bibliografia}{15}{section*.3}
+\contentsline {appendix}{\chapternumberline {A}Spis zawarto\'sci za\IeC {\l }\k aczonej p\IeC {\l }yty}{19}{appendix.A}
+\contentsline {chapter}{Spis skr\'ot\'ow}{21}{appendix*.4}
+\contentsline {chapter}{Spis symboli}{23}{appendix*.5}
+\contentsline {chapter}{Spis rysunk\'ow}{24}{section*.6}
+\contentsline {chapter}{Spis tabel}{25}{section*.7}

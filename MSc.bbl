@@ -1,8 +1,14 @@
 \begin{thebibliography}{1}
 
-\bibitem{Led2004}
-S.~Deorowicz and A.~Skórczyñski.
-\newblock {\em LED documentation}.
-\newblock 2004.
+\bibitem{EmotivManul}
+{\em Emotiv Software Development Kit User Manual for Release 1.0.0.5}.
+
+\bibitem{OpenVibre}
+{\em openvibre.inria.fr}.
+
+\bibitem{EEGwPraktyceKlinicznej}
+Quigg Mark.
+\newblock {\em EEG w praktyce klinicznej}.
+\newblock ISBN 978-83-7609-056-6. Elsevier Urban Partner, Wroc³aw, 2008.
 
 \end{thebibliography}

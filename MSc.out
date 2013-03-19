@@ -1,24 +1,37 @@
 \BOOKMARK [0][-]{section*.1}{Spis tresci}{}% 1
 \BOOKMARK [0][-]{chapter.1}{Wstep}{}% 2
 \BOOKMARK [1][-]{section.1.1}{Wprowadzenie}{chapter.1}% 3
-\BOOKMARK [1][-]{section.1.2}{Motywacja}{chapter.1}% 4
-\BOOKMARK [1][-]{section.1.3}{Wytwarzanie mowy}{chapter.1}% 5
-\BOOKMARK [1][-]{section.1.4}{Sygna\233 mowy}{chapter.1}% 6
-\BOOKMARK [1][-]{section.1.5}{Model uk\233adu s\233uchowego}{chapter.1}% 7
-\BOOKMARK [1][-]{section.1.6}{Cel i za\233ozenia pracy}{chapter.1}% 8
-\BOOKMARK [0][-]{chapter.2}{Podstawy teoretyczne}{}% 9
-\BOOKMARK [1][-]{section.2.1}{Klasyfikacja r\363znych system\363w rozpoznawania mowy}{chapter.2}% 10
-\BOOKMARK [1][-]{section.2.2}{Model akustyczny}{chapter.2}% 11
-\BOOKMARK [1][-]{section.2.3}{Model jezyka}{chapter.2}% 12
-\BOOKMARK [1][-]{section.2.4}{Schemat przetwarzania}{chapter.2}% 13
-\BOOKMARK [1][-]{section.2.5}{Przeglad istniejacych rozwiazan}{chapter.2}% 14
-\BOOKMARK [1][-]{section.2.6}{Wyb\363r technologii}{chapter.2}% 15
-\BOOKMARK [0][-]{chapter.3}{Projektowanie i tworzenie systemu}{}% 16
-\BOOKMARK [0][-]{chapter.4}{Testowanie i eksperymenty}{}% 17
-\BOOKMARK [0][-]{chapter.5}{Zakonczenie}{}% 18
-\BOOKMARK [0][-]{section*.3}{Bibliografia}{}% 19
-\BOOKMARK [0][-]{appendix.A}{Spis zawartosci za\233aczonej p\233yty}{}% 20
-\BOOKMARK [0][-]{appendix*.4}{Spis skr\363t\363w}{}% 21
-\BOOKMARK [0][-]{appendix*.5}{Spis symboli}{}% 22
-\BOOKMARK [0][-]{section*.6}{Spis rysunk\363w}{}% 23
-\BOOKMARK [0][-]{section*.7}{Spis tabel}{}% 24
+\BOOKMARK [1][-]{section.1.2}{G\233\363wny cel pracy}{chapter.1}% 4
+\BOOKMARK [1][-]{section.1.3}{Metody realizacji pracy}{chapter.1}% 5
+\BOOKMARK [1][-]{section.1.4}{Otrzymane wyniki}{chapter.1}% 6
+\BOOKMARK [0][-]{chapter.2}{Istniejace rozwiazania i prowadzone badania}{}% 7
+\BOOKMARK [1][-]{section.2.1}{Wprowadzenie}{chapter.2}% 8
+\BOOKMARK [1][-]{section.2.2}{Klasyfikacja}{chapter.2}% 9
+\BOOKMARK [1][-]{section.2.3}{Narzedzia}{chapter.2}% 10
+\BOOKMARK [1][-]{section.2.4}{Firmy, konsorcja, organizacje}{chapter.2}% 11
+\BOOKMARK [1][-]{section.2.5}{Przyk\233ady}{chapter.2}% 12
+\BOOKMARK [0][-]{chapter.3}{Emotiv Epoch - narzedzie wybrane do realizacji systemu}{}% 13
+\BOOKMARK [1][-]{section.3.1}{Motywacja}{chapter.3}% 14
+\BOOKMARK [1][-]{section.3.2}{Opis sprzetu}{chapter.3}% 15
+\BOOKMARK [1][-]{section.3.3}{Opis API}{chapter.3}% 16
+\BOOKMARK [0][-]{chapter.4}{Projekt systemu}{}% 17
+\BOOKMARK [1][-]{section.4.1}{Streszczenie}{chapter.4}% 18
+\BOOKMARK [1][-]{section.4.2}{Specyfikacja}{chapter.4}% 19
+\BOOKMARK [1][-]{section.4.3}{Architektura}{chapter.4}% 20
+\BOOKMARK [1][-]{section.4.4}{Interfejsy}{chapter.4}% 21
+\BOOKMARK [1][-]{section.4.5}{Funkcje}{chapter.4}% 22
+\BOOKMARK [1][-]{section.4.6}{Wymagania}{chapter.4}% 23
+\BOOKMARK [0][-]{chapter.5}{Przeprowadzone testy}{}% 24
+\BOOKMARK [1][-]{section.5.1}{Za\233ozenia}{chapter.5}% 25
+\BOOKMARK [1][-]{section.5.2}{Cele}{chapter.5}% 26
+\BOOKMARK [1][-]{section.5.3}{Zestawienie wynik\363w}{chapter.5}% 27
+\BOOKMARK [1][-]{section.5.4}{Teoria a rzeczywistosc}{chapter.5}% 28
+\BOOKMARK [0][-]{chapter.6}{Uwagi koncowe}{}% 29
+\BOOKMARK [1][-]{section.6.1}{Osiagniecia}{chapter.6}% 30
+\BOOKMARK [1][-]{section.6.2}{Perspektywy wykorzystania systemu}{chapter.6}% 31
+\BOOKMARK [0][-]{section*.3}{Bibliografia}{}% 32
+\BOOKMARK [0][-]{appendix.A}{Spis zawartosci za\233aczonej p\233yty}{}% 33
+\BOOKMARK [0][-]{appendix*.4}{Spis skr\363t\363w}{}% 34
+\BOOKMARK [0][-]{appendix*.5}{Spis symboli}{}% 35
+\BOOKMARK [0][-]{section*.6}{Spis rysunk\363w}{}% 36
+\BOOKMARK [0][-]{section*.7}{Spis tabel}{}% 37
