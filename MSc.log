@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=latex 2013.3.11)  19 MAR 2013 00:34
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=latex 2013.3.11)  5 APR 2013 11:36
 entering extended mode
 **MSc.tex
 (C:\Users\mariusz\Documents\GitHub\PracaMagisterska\MSc.tex
@@ -875,13 +875,7 @@ bibitemlist
 ] (C:\Users\mariusz\Documents\GitHub\PracaMagisterska\back.tex
 (C:\Users\mariusz\Documents\GitHub\PracaMagisterska\symbols.tex
 
-LaTeX Warning: Reference `sym:DMC' on page 21 undefined on input line 20.
-
-
-LaTeX Warning: Reference `sym:LZ77' on page 21 undefined on input line 22.
-
-
-LaTeX Warning: Reference `sym:LZ78' on page 21 undefined on input line 24.
+LaTeX Warning: Reference `sym:EEG' on page 21 undefined on input line 20.
 
 [21
 
@@ -916,11 +910,11 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 36.
  ) 
 Here is how much of TeX's memory you used:
  10139 strings out of 493922
- 140063 string characters out of 3155720
- 251848 words of memory out of 3000000
+ 140106 string characters out of 3155720
+ 251951 words of memory out of 3000000
  13221 multiletter control sequences out of 15000+200000
  24976 words of font info for 55 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  35i,12n,29p,439b,375s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on MSc.dvi (27 pages, 58224 bytes).
+Output written on MSc.dvi (27 pages, 58960 bytes).
