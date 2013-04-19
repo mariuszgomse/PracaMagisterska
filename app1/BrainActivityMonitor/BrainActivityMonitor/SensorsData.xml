@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sensors>
+  <sensor>
+    <name>AF3</name>
+    <x>10</x>
+    <y>10</y>
+    <width>30</width>
+    <height>30</height>
+  </sensor>
+  <sensor>
+    <name>AF4</name>
+    <x>20</x>
+    <y>20</y>
+    <width>30</width>
+    <height>30</height>
+  </sensor>
+</sensors>
