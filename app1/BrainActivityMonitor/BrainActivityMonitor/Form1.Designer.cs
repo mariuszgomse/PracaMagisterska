@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.statusLabel = new System.Windows.Forms.Label();
             this.statusValueLabel = new System.Windows.Forms.Label();
@@ -39,6 +40,7 @@
             this.propertiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -96,7 +98,7 @@
             this.toEmoEngineToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F5;
             this.toEmoEngineToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
             this.toEmoEngineToolStripMenuItem.Text = "To EmoEngine";
-            this.toEmoEngineToolStripMenuItem.Click += new System.EventHandler(this.toEmoEngineToolStripMenuItem_Click);
+            this.toEmoEngineToolStripMenuItem.Click += new System.EventHandler(this.ToEmoEngineToolStripMenuItemClick);
             // 
             // toEmoComposerToolStripMenuItem
             // 
@@ -104,7 +106,7 @@
             this.toEmoComposerToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F6;
             this.toEmoComposerToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
             this.toEmoComposerToolStripMenuItem.Text = "To EmoComposer";
-            this.toEmoComposerToolStripMenuItem.Click += new System.EventHandler(this.toEmoComposerToolStripMenuItem_Click);
+            this.toEmoComposerToolStripMenuItem.Click += new System.EventHandler(this.ToEmoComposerToolStripMenuItemClick);
             // 
             // propertiesToolStripMenuItem
             // 
@@ -112,7 +114,7 @@
             this.propertiesToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F12;
             this.propertiesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.propertiesToolStripMenuItem.Text = "Properties";
-            this.propertiesToolStripMenuItem.Click += new System.EventHandler(this.propertiesToolStripMenuItem_Click);
+            this.propertiesToolStripMenuItem.Click += new System.EventHandler(this.PropertiesToolStripMenuItemClick);
             // 
             // exitToolStripMenuItem1
             // 
@@ -123,11 +125,16 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(132, 75);
+            this.pictureBox1.Location = new System.Drawing.Point(161, 50);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(322, 381);
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.Timer1Tick);
             // 
             // Form1
             // 
@@ -141,7 +148,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Brain Activity Monitor";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.Form1Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -162,6 +169,7 @@
         private System.Windows.Forms.ToolStripMenuItem propertiesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Timer timer1;
 
 
     }

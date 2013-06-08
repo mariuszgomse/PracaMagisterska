@@ -1,0 +1,11 @@
+﻿1. Which filter should I use to the raw data ? 
+2. Is there a sense to have remote settings ? 
+   * emo composer is not for us here - it cannot generate strange of signal on the concrete electrode
+   * but maybe it will be helpfull to connect to control panel ? 
+3. In SensorsManager::InitializeSensors() path to the XML file is BEZWZGLĘDNA and there is not any place to change it
+4. All strings should be in Resources
+5. When we open the program without Epoc we have got status connected (should be not connected)
+
+
+----ODNOŚNIE PORÓWNANIA Z TYM, CO ROBIĄ W OpenViBE----
+1. Jak oni rysują wykres (w sensie czy korzystają jakoś z całego bufora, czy tak jak ja biorą ostanią wartość ?)
