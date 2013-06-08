@@ -144,5 +144,15 @@ namespace BrainActivityMonitor
         {
             _engine.ProcessEvents();
         }
+
+        private void neutralPositionSetManuallyButton_Click(object sender, EventArgs e)
+        {
+            /**
+             * 1. Get data from sensors
+             * 2. Add this data to sensorStatistics
+             * 3. Do 1 and 2 for a some specific time
+             * 4. At the end change sensorIsSetLabel and set some boolean value to true. Moreover calculate mean value from sensor.
+             */
+        }
     }
 }

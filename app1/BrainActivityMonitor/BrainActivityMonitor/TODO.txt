@@ -5,6 +5,7 @@
 3. In SensorsManager::InitializeSensors() path to the XML file is BEZWZGLĘDNA and there is not any place to change it
 4. All strings should be in Resources
 5. When we open the program without Epoc we have got status connected (should be not connected)
+6. Read from XML just like we did in RBD project
 
 
 ----ODNOŚNIE PORÓWNANIA Z TYM, CO ROBIĄ W OpenViBE----

@@ -40,7 +40,7 @@ namespace BrainActivityMonitor
                 e.Graphics.DrawString(sensorName, _font, Brushes.DimGray, sensorX + 3, sensorY + 33);
                 
                 var valueString = sensor.Value.ToString(CultureInfo.InvariantCulture);
-                sensorDisplayInfo.Brush = GetBrush(sensor.Value);
+                //sensorDisplayInfo.Brush = GetBrush(sensor.Value, sensor.Statistics);
                 e.Graphics.FillEllipse(sensorDisplayInfo.Brush, sensorDisplayInfo.Rectangle);
                 try
                 {

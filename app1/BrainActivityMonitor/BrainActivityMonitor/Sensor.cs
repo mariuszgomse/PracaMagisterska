@@ -20,5 +20,7 @@ namespace BrainActivityMonitor
             Name = convertedName;
             Value = value;
         }
+
+        public SensorStatistics Statistics { get; set; }
     }
 }
