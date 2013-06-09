@@ -47,6 +47,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CsvDataManager.cs" />
+    <Compile Include="CsvEpocFileReader.cs" />
     <Compile Include="SensorDisplayInfo.cs" />
     <Compile Include="SensorsManager.cs" />
     <Compile Include="SensorStatistics.cs" />
@@ -92,6 +94,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="SpecialActivity-Blinking-07.04.13.17.04.29.CSV" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

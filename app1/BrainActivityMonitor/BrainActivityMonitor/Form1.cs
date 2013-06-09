@@ -13,6 +13,8 @@ namespace BrainActivityMonitor
         EmoEngine _engine;
         SensorsManager _sm;
         private bool NeutralPositionReading = false;
+        private bool IsDataFromCSV = false;
+        private CsvDataManager csvDataManager;
 
         public Form1()
         {
@@ -44,8 +46,7 @@ namespace BrainActivityMonitor
             }
             foreach (var sensor in _sm.Sensors.Keys)
             {
-                var name = sensor.Name.ToString();
-                name = name.Replace(Resources.SensorPrefix, "");
+                var name = sensor.GetConvertedName();
                 try
                 {
                     var channel = (EdkDll.EE_DataChannel_t) Enum.Parse(typeof (EdkDll.EE_DataChannel_t), name);
@@ -65,26 +66,34 @@ namespace BrainActivityMonitor
             }
         }
 
-        private double[] HighPassFilter(double[] input)
+        private void ProcessCsvData()
         {
-            double fCut = 0.16F;
-            const double W = 2.0F * 128;
-
-            fCut *= 6.28318530717959F; // 2.0F * Math.Pi 
-            double norm = 1.0F / (fCut + W);
-            double a0 = W * norm;
-            double a1 = -a0;
-            double b1 = (W - fCut) * norm;
-
-            double[] output = new double[input.Length];
-
-            for (int i = 0; i < input.Length - 1; i++)
+            var eegData = csvDataManager.getData();
+            if (eegData == null)
             {
-                if (i - 1 > 0)
-                    output[i] = input[i] * a0 + input[i - 1] * a1 + output[i - 1] * b1;
+                return;
             }
+            foreach (var sensor in _sm.Sensors.Keys)
+            {
+                var name = sensor.GetConvertedName();
+                try
+                {
+                    var channel = (EdkDll.EE_DataChannel_t)Enum.Parse(typeof(EdkDll.EE_DataChannel_t), name);
+                    var data = eegData[channel];
+                    sensor.Value = data[data.Length - 1];
+                    sensor.Values = data;
+                    if (NeutralPositionReading)
+                    {
+                        sensor.Statistics.AddValue(sensor.Value);
+                        sensor.Statistics.addValues(sensor.Values);
+                    }
+                    _sm.DrawSensor();
+                }
+                catch (Exception exc)
+                {
 
-            return output;
+                }
+            }
         }
 
         private void ConnectToEmoEngine()
@@ -151,7 +160,14 @@ namespace BrainActivityMonitor
 
         private void Timer1Tick(object sender, EventArgs e)
         {
-            _engine.ProcessEvents();
+            if (!IsDataFromCSV)
+            {
+                _engine.ProcessEvents();
+            } else
+            {
+                ProcessCsvData();
+            }
+           
         }
 
         private void neutralPositionSetManuallyButton_Click(object sender, EventArgs e)
@@ -194,6 +210,21 @@ namespace BrainActivityMonitor
                     yCounter += 22;
                 }
             }
+        }
+
+        private void loadCSVButton_Click(object sender, EventArgs e)
+        {
+            String filePath = "C:\\Users\\mariusz\\Documents\\GitHub\\PracaMagisterska\\app1\\BrainActivityMonitor\\BrainActivityMonitor\\SpecialActivity-Blinking-07.04.13.17.04.29.CSV";
+            CsvEpocFileReader reader = new CsvEpocFileReader(filePath);
+            int num = reader.readData();
+            MessageBox.Show("Loaded " + num + " rows of data");
+            PlayLoadedCsvButton.Visible = true;
+            csvDataManager = new CsvDataManager(reader);
+        }
+
+        private void PlayLoadedCsvButton_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

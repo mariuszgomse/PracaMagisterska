@@ -1,4 +1,5 @@
 ﻿using System;
+using BrainActivityMonitor.Properties;
 using Emotiv;
 
 namespace BrainActivityMonitor
@@ -26,5 +27,11 @@ namespace BrainActivityMonitor
 
         public SensorStatistics Statistics { get; set; }
         public Boolean IsReference { get; set; }
+
+        public String GetConvertedName()
+        {
+            var sensorName = Enum.GetName(typeof (EdkDll.EE_InputChannels_t), Name);
+            return sensorName.Replace(Resources.SensorPrefix, "");
+        }
     }
 }

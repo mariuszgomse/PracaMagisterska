@@ -45,6 +45,8 @@
             this.neutralPositionSetManuallyButton = new System.Windows.Forms.Button();
             this.neutralPositionStopSetManuallyButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.loadCSVButton = new System.Windows.Forms.Button();
+            this.PlayLoadedCsvButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -181,11 +183,34 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Neutral Values";
             // 
+            // loadCSVButton
+            // 
+            this.loadCSVButton.Location = new System.Drawing.Point(15, 86);
+            this.loadCSVButton.Name = "loadCSVButton";
+            this.loadCSVButton.Size = new System.Drawing.Size(122, 23);
+            this.loadCSVButton.TabIndex = 8;
+            this.loadCSVButton.Text = "Load CSV";
+            this.loadCSVButton.UseVisualStyleBackColor = true;
+            this.loadCSVButton.Click += new System.EventHandler(this.loadCSVButton_Click);
+            // 
+            // PlayLoadedCsvButton
+            // 
+            this.PlayLoadedCsvButton.Location = new System.Drawing.Point(15, 116);
+            this.PlayLoadedCsvButton.Name = "PlayLoadedCsvButton";
+            this.PlayLoadedCsvButton.Size = new System.Drawing.Size(122, 25);
+            this.PlayLoadedCsvButton.TabIndex = 9;
+            this.PlayLoadedCsvButton.Text = "Play loaded CSV";
+            this.PlayLoadedCsvButton.UseVisualStyleBackColor = true;
+            this.PlayLoadedCsvButton.Visible = false;
+            this.PlayLoadedCsvButton.Click += new System.EventHandler(this.PlayLoadedCsvButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(801, 482);
+            this.Controls.Add(this.PlayLoadedCsvButton);
+            this.Controls.Add(this.loadCSVButton);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.neutralPositionStopSetManuallyButton);
             this.Controls.Add(this.neutralPositionSetManuallyButton);
@@ -223,6 +248,8 @@
         private System.Windows.Forms.Button neutralPositionSetManuallyButton;
         private System.Windows.Forms.Button neutralPositionStopSetManuallyButton;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button loadCSVButton;
+        private System.Windows.Forms.Button PlayLoadedCsvButton;
 
 
     }
