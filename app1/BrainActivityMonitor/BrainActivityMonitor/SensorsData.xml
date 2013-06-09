@@ -6,6 +6,7 @@
     <y>49</y>
     <width>33</width>
     <height>33</height>
+    <isReference>false</isReference>
   </sensor>
   <sensor>
     <name>AF4</name>
@@ -13,6 +14,7 @@
     <y>49</y>
     <width>33</width>
     <height>33</height>
+    <isReference>false</isReference>
   </sensor>
   <sensor>
     <name>F7</name>
@@ -20,6 +22,7 @@
     <y>100</y>
     <width>33</width>
     <height>33</height>
+    <isReference>false</isReference>
   </sensor>
   <sensor>
     <name>F8</name>
@@ -27,6 +30,7 @@
     <y>100</y>
     <width>33</width>
     <height>33</height>
+    <isReference>false</isReference>
   </sensor>
   <sensor>
     <name>F3</name>
@@ -34,6 +38,7 @@
     <y>94</y>
     <width>33</width>
     <height>33</height>
+    <isReference>false</isReference>
   </sensor>
   <sensor>
     <name>F4</name>
@@ -41,6 +46,7 @@
     <y>94</y>
     <width>33</width>
     <height>33</height>
+    <isReference>false</isReference>
   </sensor>
   <sensor>
     <name>FC6</name>
@@ -48,6 +54,7 @@
     <y>131</y>
     <width>33</width>
     <height>33</height>
+    <isReference>false</isReference>
   </sensor>
   <sensor>
     <name>FC5</name>
@@ -55,6 +62,7 @@
     <y>131</y>
     <width>33</width>
     <height>33</height>
+    <isReference>false</isReference>
   </sensor>
   <sensor>
     <name>T7</name>
@@ -62,6 +70,7 @@
     <y>174</y>
     <width>33</width>
     <height>33</height>
+    <isReference>false</isReference>
   </sensor>
   <sensor>
     <name>T8</name>
@@ -69,6 +78,7 @@
     <y>174</y>
     <width>33</width>
     <height>33</height>
+    <isReference>false</isReference>
   </sensor>
   <sensor>
     <name>CMS</name>
@@ -76,6 +86,7 @@
     <y>219</y>
     <width>33</width>
     <height>33</height>
+    <isReference>true</isReference>
   </sensor>
   <sensor>
     <name>DRL</name>
@@ -83,6 +94,7 @@
     <y>219</y>
     <width>33</width>
     <height>33</height>
+    <isReference>true</isReference>
   </sensor>
   <sensor>
     <name>P7</name>
@@ -90,6 +102,7 @@
     <y>273</y>
     <width>33</width>
     <height>33</height>
+    <isReference>false</isReference>
   </sensor>
   <sensor>
     <name>P8</name>
@@ -97,6 +110,7 @@
     <y>273</y>
     <width>33</width>
     <height>33</height>
+    <isReference>false</isReference>
   </sensor>
   <sensor>
     <name>O1</name>
@@ -104,6 +118,7 @@
     <y>321</y>
     <width>33</width>
     <height>33</height>
+    <isReference>false</isReference>
   </sensor>
   <sensor>
     <name>O2</name>
@@ -111,5 +126,6 @@
     <y>321</y>
     <width>33</width>
     <height>33</height>
+    <isReference>false</isReference>
   </sensor>
 </sensors>

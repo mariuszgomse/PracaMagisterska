@@ -43,6 +43,8 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.NeutralPositionIsSetLabel = new System.Windows.Forms.Label();
             this.neutralPositionSetManuallyButton = new System.Windows.Forms.Button();
+            this.neutralPositionStopSetManuallyButton = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -159,11 +161,33 @@
             this.neutralPositionSetManuallyButton.UseVisualStyleBackColor = true;
             this.neutralPositionSetManuallyButton.Click += new System.EventHandler(this.neutralPositionSetManuallyButton_Click);
             // 
+            // neutralPositionStopSetManuallyButton
+            // 
+            this.neutralPositionStopSetManuallyButton.Location = new System.Drawing.Point(558, 116);
+            this.neutralPositionStopSetManuallyButton.Name = "neutralPositionStopSetManuallyButton";
+            this.neutralPositionStopSetManuallyButton.Size = new System.Drawing.Size(171, 25);
+            this.neutralPositionStopSetManuallyButton.TabIndex = 6;
+            this.neutralPositionStopSetManuallyButton.Text = "Stop setting neutral possition";
+            this.neutralPositionStopSetManuallyButton.UseVisualStyleBackColor = true;
+            this.neutralPositionStopSetManuallyButton.Visible = false;
+            this.neutralPositionStopSetManuallyButton.Click += new System.EventHandler(this.neutralPositionStopSetManuallyButton_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Location = new System.Drawing.Point(538, 147);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(219, 323);
+            this.groupBox1.TabIndex = 7;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Neutral Values";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(801, 482);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.neutralPositionStopSetManuallyButton);
             this.Controls.Add(this.neutralPositionSetManuallyButton);
             this.Controls.Add(this.NeutralPositionIsSetLabel);
             this.Controls.Add(this.pictureBox1);
@@ -197,6 +221,8 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label NeutralPositionIsSetLabel;
         private System.Windows.Forms.Button neutralPositionSetManuallyButton;
+        private System.Windows.Forms.Button neutralPositionStopSetManuallyButton;
+        private System.Windows.Forms.GroupBox groupBox1;
 
 
     }

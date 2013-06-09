@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
+using System.Linq;
 using System.Windows.Forms;
 using System.Xml;
 using BrainActivityMonitor.Properties;
@@ -15,6 +16,7 @@ namespace BrainActivityMonitor
         public Dictionary<Sensor, SensorDisplayInfo> Sensors { get; set; }
         private readonly PictureBox _pictureBox;
         private readonly Font _font;
+        readonly List<double> _values = new List<double>();
 
         public SensorsManager(PictureBox pictureBox)
         {
@@ -40,17 +42,56 @@ namespace BrainActivityMonitor
                 e.Graphics.DrawString(sensorName, _font, Brushes.DimGray, sensorX + 3, sensorY + 33);
                 
                 var valueString = sensor.Value.ToString(CultureInfo.InvariantCulture);
-                //sensorDisplayInfo.Brush = GetBrush(sensor.Value, sensor.Statistics);
-                e.Graphics.FillEllipse(sensorDisplayInfo.Brush, sensorDisplayInfo.Rectangle);
-                try
+                if (sensor.Statistics.isAverageCalculated)
                 {
-                    valueString = valueString.Remove(6);
-                } catch(Exception exc)
-                {
-                    
+                    sensorDisplayInfo.Brush = GetBrush(sensor.Values, sensor.Statistics.dataAverage);
                 }
-                e.Graphics.DrawString(valueString, _font, Brushes.Black, sensorX + 8, sensorY + 10);
+                e.Graphics.FillEllipse(sensorDisplayInfo.Brush, sensorDisplayInfo.Rectangle);
+                //try
+                //{
+                //    valueString = valueString.Remove(6);
+                //} catch(Exception exc)
+                //{
+                    
+                //}
+                //e.Graphics.DrawString(valueString, _font, Brushes.Black, sensorX + 8, sensorY + 10);
             }
+        }
+
+        private Brush GetBrush(double[] sensorData, double sensorAverage)
+        {
+            double average = sensorData.Average();
+            double difference = average - sensorAverage;
+
+            int averageValue = 30;
+            int littlestValue = 60;
+
+            if (difference > littlestValue)
+            {
+                return Brushes.Green;
+            }
+
+            if (difference > averageValue && difference <= littlestValue)
+            {
+                return Brushes.Yellow;
+            }
+
+            if (Math.Abs(difference) <= averageValue)
+            {
+                return Brushes.Orange;
+            }
+
+            if (difference < -averageValue && difference >= -littlestValue)
+            {
+                return Brushes.SandyBrown;
+            }
+
+            if (difference < -littlestValue)
+            {
+                return Brushes.Red;
+            }
+
+            return Brushes.Black;
         }
 
         private void InitializeSensors()
@@ -72,9 +113,11 @@ namespace BrainActivityMonitor
                     int y = Int32.Parse(node.SelectSingleNode("y").InnerText);
                     int width = Int32.Parse(node.SelectSingleNode("width").InnerText);
                     int height = Int32.Parse(node.SelectSingleNode("height").InnerText);
+                    bool isReference = Boolean.Parse(node.SelectSingleNode("isReference").InnerText);
                     var sensorDisplayInfo = new SensorDisplayInfo(x, y, width, height);
                     var name = Resources.SensorPrefix + node.SelectSingleNode("name").InnerText;
                     var sensor = new Sensor(name);
+                    sensor.IsReference = isReference;
                     Sensors.Add(sensor, sensorDisplayInfo);
                     // ReSharper restore PossibleNullReferenceException
                 }

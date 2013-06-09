@@ -24,7 +24,7 @@ namespace BrainActivityMonitor
             Rectangle = new Rectangle(X, Y, Width, Height);
             if (brush == null)
             {
-                Brush = Brushes.Black;
+                Brush = Brushes.Azure;
             }
         }
     }

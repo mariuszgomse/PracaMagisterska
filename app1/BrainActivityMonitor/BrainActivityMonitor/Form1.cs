@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 using BrainActivityMonitor.Properties;
 using Emotiv;
@@ -11,6 +12,7 @@ namespace BrainActivityMonitor
         SettingsForm _settingsForm;
         EmoEngine _engine;
         SensorsManager _sm;
+        private bool NeutralPositionReading = false;
 
         public Form1()
         {
@@ -30,6 +32,7 @@ namespace BrainActivityMonitor
             _settingsForm = new SettingsForm();
 
             _sm = new SensorsManager(pictureBox1);
+            DrawNeutralSensorGroupBox();
         }
 
         void EngineEmoStateUpdated(object sender, EmoStateUpdatedEventArgs e)
@@ -48,6 +51,12 @@ namespace BrainActivityMonitor
                     var channel = (EdkDll.EE_DataChannel_t) Enum.Parse(typeof (EdkDll.EE_DataChannel_t), name);
                     var data = eegData[channel];
                     sensor.Value = data[data.Length-1];
+                    sensor.Values = data;
+                    if (NeutralPositionReading)
+                    {
+                        sensor.Statistics.AddValue(sensor.Value);
+                        sensor.Statistics.addValues(sensor.Values);
+                    }
                     _sm.DrawSensor();
                 } catch(Exception exc)
                 {
@@ -147,12 +156,44 @@ namespace BrainActivityMonitor
 
         private void neutralPositionSetManuallyButton_Click(object sender, EventArgs e)
         {
-            /**
-             * 1. Get data from sensors
-             * 2. Add this data to sensorStatistics
-             * 3. Do 1 and 2 for a some specific time
-             * 4. At the end change sensorIsSetLabel and set some boolean value to true. Moreover calculate mean value from sensor.
-             */
+            NeutralPositionReading = true;
+            neutralPositionSetManuallyButton.Visible = false;
+            neutralPositionStopSetManuallyButton.Visible = true;
+        }
+
+        private void neutralPositionStopSetManuallyButton_Click(object sender, EventArgs e)
+        {
+            NeutralPositionReading = false;
+            neutralPositionStopSetManuallyButton.Visible = false;
+            neutralPositionSetManuallyButton.Visible = true;
+            int yCounter = 20;
+            foreach (Sensor sensor in _sm.Sensors.Keys)
+            {
+                sensor.Statistics.CalculateAverage();
+                sensor.Statistics.CalculateAverageForData();
+            }
+            DrawNeutralSensorGroupBox();
+        }
+
+        private void DrawNeutralSensorGroupBox()
+        {
+            groupBox1.Controls.Clear();
+            int yCounter = 20;
+            foreach (Sensor sensor in _sm.Sensors.Keys)
+            {
+                if (!sensor.IsReference)
+                {
+                    Label label = new Label();
+                    label.Text = sensor.Name.ToString();
+                    label.Location = new Point(10, yCounter);
+                    groupBox1.Controls.Add(label);
+                    label = new Label();
+                    label.Text = sensor.Statistics.Average.ToString();
+                    label.Location = new Point(150, yCounter);
+                    groupBox1.Controls.Add(label);
+                    yCounter += 22;
+                }
+            }
         }
     }
 }
