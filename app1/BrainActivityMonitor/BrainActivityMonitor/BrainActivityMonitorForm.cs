@@ -8,16 +8,16 @@ using Emotiv;
 
 namespace BrainActivityMonitor
 {
-    public partial class Form1 : Form
+    public partial class BrainActivityMonitorForm : Form
     {
         SettingsForm _settingsForm;
         EmoEngine _engine;
         SensorsManager _sm;
         private bool NeutralPositionReading = false;
         private bool IsDataFromCSV = false;
-        private CsvDataManager csvDataManager;
+        private CsvManager _csvManager;
 
-        public Form1()
+        public BrainActivityMonitorForm()
         {
             InitializeComponent();
         }
@@ -69,12 +69,11 @@ namespace BrainActivityMonitor
 
         private void ProcessCsvData()
         {
-            var eegData = csvDataManager.getData();
+            var eegData = _csvManager.GetData();
             if (eegData == null)
             {
                 IsDataFromCSV = false;
-                PlayLoadedCsvButton.Visible = false;
-                statusValueLabel.Text = "Csv data read - normal mode on";
+                statusStrip1.Text = "Csv data read - normal mode on";
                 MessageBox.Show("Csv data read end");
                 return;
             }
@@ -109,11 +108,11 @@ namespace BrainActivityMonitor
             }
             catch (EmoEngineException eeException)
             {
-                statusValueLabel.Text = eeException.Message;
+                statusStrip1.Text = eeException.Message;
             }
             catch (Exception exception)
             {
-                statusValueLabel.Text = exception.Message;
+                statusStrip1.Text = exception.Message;
             }
         }
 
@@ -129,12 +128,12 @@ namespace BrainActivityMonitor
 
         void EngineEmoEngineDisconnected(object sender, EmoEngineEventArgs e)
         {
-            statusValueLabel.Text = Resources.Form1_EngineEmoEngineDisconnected_Disconnected;
+            statusStrip1.Text = Resources.Form1_EngineEmoEngineDisconnected_Disconnected;
         }
 
         void EngineEmoEngineConnected(object sender, EmoEngineEventArgs e)
         {
-            statusValueLabel.Text = Resources.Form1_engine_EmoEngineConnected_Connected;
+            statusStrip1.Text = Resources.Form1_engine_EmoEngineConnected_Connected;
         }
 
         private void PropertiesToolStripMenuItemClick(object sender, EventArgs e)
@@ -155,11 +154,11 @@ namespace BrainActivityMonitor
             }
             catch (EmoEngineException eeException)
             {
-                statusValueLabel.Text = eeException.Message;
+                statusStrip1.Text = eeException.Message;
             }
             catch (Exception exception)
             {
-                statusValueLabel.Text = exception.Message;
+                statusStrip1.Text = exception.Message;
             }
         }
 
@@ -222,23 +221,78 @@ namespace BrainActivityMonitor
             }
         }
 
-        private void loadCSVButton_Click(object sender, EventArgs e)
+        private void epocToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DialogResult result = openCsvFileDialog.ShowDialog();
-            if (result == DialogResult.OK)
+            if (epocToolStripMenuItem.Checked) return;
+            
+            SetEpocToolStripMenuItemChecked();
+            csvControlGroupBox.Visible = false;
+        }
+
+        private void CsvToolStripMenuItemClick(object sender, EventArgs e)
+        {
+            try
             {
-                var reader = new CsvEpocFileReader(openCsvFileDialog.FileName);
-                var rowsReaded = reader.readData();
-                MessageBox.Show("Loaded " + rowsReaded + " rows of data");
-                PlayLoadedCsvButton.Visible = true;
-                csvDataManager = new CsvDataManager(reader);
-                statusValueLabel.Text = openCsvFileDialog.SafeFileName + " read";
+                if (csvToolStripMenuItem.Checked) return;
+
+                var csvManager = GetCsvManager();
+                if (csvManager.IsFileLoaded())
+                {
+                    SetCsvToolStripMenuItemChecked();
+                    csvControlGroupBox.Visible = true;
+                    return;
+                }
+
+                LoadCsv();
+                SetCsvToolStripMenuItemChecked();
+                csvControlGroupBox.Visible = true;
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception.Message);
+                SetEpocToolStripMenuItemChecked();
             }
         }
 
-        private void PlayLoadedCsvButton_Click(object sender, EventArgs e)
+        private void SetEpocToolStripMenuItemChecked()
+        {
+            csvToolStripMenuItem.Checked = false;
+            epocToolStripMenuItem.Checked = true;
+        }
+
+        private void SetCsvToolStripMenuItemChecked()
+        {
+            epocToolStripMenuItem.Checked = false;
+            csvToolStripMenuItem.Checked = true;
+        }
+
+        private CsvManager GetCsvManager()
+        {
+            return _csvManager ?? (_csvManager = new CsvManager());
+        }
+
+        private void LoadCsvButtonClick1(object sender, EventArgs e)
+        {
+            try
+            {
+                LoadCsv();
+            } catch (Exception exception)
+            {
+                Console.WriteLine(exception.Message);
+            }
+        }
+
+        private void PlayLoadedCsvButtonClick1(object sender, EventArgs e)
         {
             IsDataFromCSV = true;
+        }
+
+        private void LoadCsv()
+        {
+            var csvManager = GetCsvManager();
+            var rowsLoaded = csvManager.LoadFile();
+            MessageBox.Show(string.Format("{0} rows loaded", rowsLoaded));
+            toolStripStatusLabel1.Text = string.Format("{0} read", csvManager.GetLoadedFileName());
         }
     }
 }

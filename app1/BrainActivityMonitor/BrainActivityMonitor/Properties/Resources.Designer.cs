@@ -79,6 +79,25 @@ namespace BrainActivityMonitor.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to CSV files|*.csv.
+        /// </summary>
+        internal static string OpenFileDialog_Filter_CSV {
+            get {
+                return ResourceManager.GetString("OpenFileDialog Filter CSV", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap player_play {
+            get {
+                object obj = ResourceManager.GetObject("player_play", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to EE_CHAN_.
         /// </summary>
         internal static string SensorPrefix {

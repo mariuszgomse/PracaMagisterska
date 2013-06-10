@@ -42,7 +42,7 @@ namespace BrainActivityMonitor
                 _data.Add(p);
         }
 
-        public void CalculateAverageForData() //TODO: zastanowic sie, czy nie powinienem jednak obliczac sredniej dla wszystkich liczb (a nie dla buforowych)
+        public void CalculateAverageForData()
         {
             isAverageForDataCalculated = true;
             if (_data.Count > 0)

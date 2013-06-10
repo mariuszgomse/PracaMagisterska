@@ -19,7 +19,12 @@ namespace BrainActivityMonitor
             {
                 SensorValues.Add(i, new List<double>());
             }
+            Name = filename;
         }
+
+        public bool IsRead = false;
+
+        public string Name;
 
         public int readData()
         {
@@ -38,6 +43,7 @@ namespace BrainActivityMonitor
 
             List<double> tmp;
             SensorValues.TryGetValue(2, out tmp);
+            IsRead = true;
             return tmp.Count;
         }
 
