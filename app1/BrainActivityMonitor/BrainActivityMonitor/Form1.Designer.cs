@@ -47,6 +47,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.loadCSVButton = new System.Windows.Forms.Button();
             this.PlayLoadedCsvButton = new System.Windows.Forms.Button();
+            this.openCsvFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -75,7 +76,7 @@
             this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(801, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(785, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -131,7 +132,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(161, 50);
+            this.pictureBox1.Location = new System.Drawing.Point(161, 61);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(322, 381);
             this.pictureBox1.TabIndex = 3;
@@ -204,11 +205,16 @@
             this.PlayLoadedCsvButton.Visible = false;
             this.PlayLoadedCsvButton.Click += new System.EventHandler(this.PlayLoadedCsvButton_Click);
             // 
+            // openCsvFileDialog
+            // 
+            this.openCsvFileDialog.FileName = "openCsvFileDialog";
+            this.openCsvFileDialog.Filter = "CSV files|*.csv";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(801, 482);
+            this.ClientSize = new System.Drawing.Size(785, 482);
             this.Controls.Add(this.PlayLoadedCsvButton);
             this.Controls.Add(this.loadCSVButton);
             this.Controls.Add(this.groupBox1);
@@ -250,6 +256,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button loadCSVButton;
         private System.Windows.Forms.Button PlayLoadedCsvButton;
+        private System.Windows.Forms.OpenFileDialog openCsvFileDialog;
 
 
     }

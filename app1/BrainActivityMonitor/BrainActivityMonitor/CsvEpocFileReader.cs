@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
+using Emotiv;
 
 namespace BrainActivityMonitor
 {
     class CsvEpocFileReader : StreamReader
     {
-        public Dictionary<int, List<double>> SensorValues = new Dictionary<int, List<double>>(); 
+        public Dictionary<int, List<double>> SensorValues = new Dictionary<int, List<double>>();
 
         public CsvEpocFileReader(string filename)
             : base(filename)
@@ -37,6 +39,14 @@ namespace BrainActivityMonitor
             List<double> tmp;
             SensorValues.TryGetValue(2, out tmp);
             return tmp.Count;
+        }
+
+        public EdkDll.EE_DataChannel_t GetChannel(int key)
+        {
+            EdkDll.EE_DataChannel_t channel;
+            key++;
+            Enum.TryParse(key.ToString(CultureInfo.InvariantCulture), out channel);
+            return channel;
         }
     }
 }

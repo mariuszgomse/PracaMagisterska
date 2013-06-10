@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Globalization;
 using System.Windows.Forms;
 using BrainActivityMonitor.Properties;
 using Emotiv;
@@ -71,6 +72,10 @@ namespace BrainActivityMonitor
             var eegData = csvDataManager.getData();
             if (eegData == null)
             {
+                IsDataFromCSV = false;
+                PlayLoadedCsvButton.Visible = false;
+                statusValueLabel.Text = "Csv data read - normal mode on";
+                MessageBox.Show("Csv data read end");
                 return;
             }
             foreach (var sensor in _sm.Sensors.Keys)
@@ -189,6 +194,7 @@ namespace BrainActivityMonitor
                 sensor.Statistics.CalculateAverageForData();
             }
             DrawNeutralSensorGroupBox();
+            NeutralPositionIsSetLabel.Visible = false;
         }
 
         private void DrawNeutralSensorGroupBox()
@@ -204,7 +210,11 @@ namespace BrainActivityMonitor
                     label.Location = new Point(10, yCounter);
                     groupBox1.Controls.Add(label);
                     label = new Label();
-                    label.Text = sensor.Statistics.Average.ToString();
+                    label.Text = sensor.Statistics.dataAverage.ToString(CultureInfo.InvariantCulture);
+                    if (label.Text.Length > 6)
+                    {
+                        label.Text = label.Text.Remove(6);
+                    }
                     label.Location = new Point(150, yCounter);
                     groupBox1.Controls.Add(label);
                     yCounter += 22;
@@ -214,17 +224,21 @@ namespace BrainActivityMonitor
 
         private void loadCSVButton_Click(object sender, EventArgs e)
         {
-            String filePath = "C:\\Users\\mariusz\\Documents\\GitHub\\PracaMagisterska\\app1\\BrainActivityMonitor\\BrainActivityMonitor\\SpecialActivity-Blinking-07.04.13.17.04.29.CSV";
-            CsvEpocFileReader reader = new CsvEpocFileReader(filePath);
-            int num = reader.readData();
-            MessageBox.Show("Loaded " + num + " rows of data");
-            PlayLoadedCsvButton.Visible = true;
-            csvDataManager = new CsvDataManager(reader);
+            DialogResult result = openCsvFileDialog.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                var reader = new CsvEpocFileReader(openCsvFileDialog.FileName);
+                var rowsReaded = reader.readData();
+                MessageBox.Show("Loaded " + rowsReaded + " rows of data");
+                PlayLoadedCsvButton.Visible = true;
+                csvDataManager = new CsvDataManager(reader);
+                statusValueLabel.Text = openCsvFileDialog.SafeFileName + " read";
+            }
         }
 
         private void PlayLoadedCsvButton_Click(object sender, EventArgs e)
         {
-            
+            IsDataFromCSV = true;
         }
     }
 }

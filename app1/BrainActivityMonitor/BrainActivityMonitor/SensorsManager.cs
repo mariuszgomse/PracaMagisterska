@@ -31,6 +31,10 @@ namespace BrainActivityMonitor
         {
             foreach(var sensor in Sensors.Keys)
             {
+                if (sensor.IsReference)
+                {
+                    continue;
+                }
                 var sensorName = Enum.GetName(typeof (EdkDll.EE_InputChannels_t), sensor.Name);
                 Debug.Assert(sensorName != null, "sensorName != null");
                 
@@ -42,7 +46,7 @@ namespace BrainActivityMonitor
                 e.Graphics.DrawString(sensorName, _font, Brushes.DimGray, sensorX + 3, sensorY + 33);
                 
                 var valueString = sensor.Value.ToString(CultureInfo.InvariantCulture);
-                if (sensor.Statistics.isAverageCalculated)
+                if (sensor.Statistics.isAverageForDataCalculated)
                 {
                     sensorDisplayInfo.Brush = GetBrush(sensor.Values, sensor.Statistics.dataAverage);
                 }
