@@ -64,33 +64,36 @@ namespace BrainActivityMonitor
 
         private Brush GetBrush(double[] sensorData, double sensorAverage)
         {
-            double average = sensorData.Average();
+            double[] sensorDataAbs = new double[sensorData.Length];
+            for (int i = 0; i < sensorData.Length; i++)
+            {
+                sensorDataAbs[i] = Math.Abs(sensorData[i]);
+            }
+
+            double average = sensorDataAbs.Average();
             double difference = average - sensorAverage;
 
-            int averageValue = 30;
-            int littlestValue = 60;
-
-            if (difference > littlestValue)
+            if (difference > 100)
             {
                 return Brushes.Green;
             }
 
-            if (difference > averageValue && difference <= littlestValue)
+            if (difference <= 100 && difference > 70)
             {
                 return Brushes.Yellow;
             }
 
-            if (Math.Abs(difference) <= averageValue)
+            if (difference <= 70 && difference > 40)
             {
                 return Brushes.Orange;
             }
 
-            if (difference < -averageValue && difference >= -littlestValue)
+            if (difference <= 40 && difference > 20)
             {
                 return Brushes.SandyBrown;
             }
 
-            if (difference < -littlestValue)
+            if (difference < 20)
             {
                 return Brushes.Red;
             }
