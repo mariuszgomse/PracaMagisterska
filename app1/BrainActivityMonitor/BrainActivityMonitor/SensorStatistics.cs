@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace BrainActivityMonitor
 {
@@ -9,14 +8,14 @@ namespace BrainActivityMonitor
     {
         readonly List<double> _values = new List<double>();
         public double Average { get; set; }
-        public bool isAverageCalculated {get; set;}
-        public bool isAverageForDataCalculated = false;
+        public bool IsAverageCalculated {get; set;}
+        public bool IsAverageForDataCalculated = false;
         readonly List<double[]> _data = new List<double[]>();
-        public double dataAverage = 0;
+        public double DataAverage = 0;
 
         public SensorStatistics()
         {
-            isAverageCalculated = false;
+            IsAverageCalculated = false;
         }
 
         public void AddValue(double value)
@@ -26,41 +25,27 @@ namespace BrainActivityMonitor
 
         public void CalculateAverage()
         {
-            isAverageCalculated = true;
-            if (_values.Count > 0)
-            {
-                Average = _values.Average();
-            }
-            else
-            {
-                Average = 0;
-            }
+            IsAverageCalculated = true;
+            Average = _values.Count > 0 ? _values.Average() : 0;
         }
 
-        internal void addValues(double[] p)
+        internal void AddValues(double[] p)
         {
                 _data.Add(p);
         }
 
         public void CalculateAverageForData()
         {
-            isAverageForDataCalculated = true;
+            IsAverageForDataCalculated = true;
             if (_data.Count > 0)
             {
-                List<double> tmp = new List<double>();
-                foreach (double[] doublese in _data)
-                {
-                    foreach (var d in doublese)
-                    {
-                        tmp.Add(Math.Abs(d));
-                    }
-                }
+                var tmp = (from doublese in _data from d in doublese select Math.Abs(d)).ToList();
 
-                dataAverage = tmp.Average();
+                DataAverage = tmp.Average();
             }
             else
             {
-                dataAverage = 0;
+                DataAverage = 0;
             }
             
         }

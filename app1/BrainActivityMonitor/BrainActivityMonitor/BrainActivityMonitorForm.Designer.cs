@@ -134,7 +134,7 @@
             this.epocToolStripMenuItem.Name = "epocToolStripMenuItem";
             this.epocToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.epocToolStripMenuItem.Text = "Epoc";
-            this.epocToolStripMenuItem.Click += new System.EventHandler(this.epocToolStripMenuItem_Click);
+            this.epocToolStripMenuItem.Click += new System.EventHandler(this.EpocToolStripMenuItemClick);
             // 
             // csvToolStripMenuItem
             // 
@@ -176,7 +176,7 @@
             this.neutralPositionSetManuallyButton.TabIndex = 5;
             this.neutralPositionSetManuallyButton.Text = "Set neutral position manually";
             this.neutralPositionSetManuallyButton.UseVisualStyleBackColor = true;
-            this.neutralPositionSetManuallyButton.Click += new System.EventHandler(this.neutralPositionSetManuallyButton_Click);
+            this.neutralPositionSetManuallyButton.Click += new System.EventHandler(this.NeutralPositionSetManuallyButtonClick);
             // 
             // neutralPositionStopSetManuallyButton
             // 
@@ -187,7 +187,7 @@
             this.neutralPositionStopSetManuallyButton.Text = "Stop setting neutral possition";
             this.neutralPositionStopSetManuallyButton.UseVisualStyleBackColor = true;
             this.neutralPositionStopSetManuallyButton.Visible = false;
-            this.neutralPositionStopSetManuallyButton.Click += new System.EventHandler(this.neutralPositionStopSetManuallyButton_Click);
+            this.neutralPositionStopSetManuallyButton.Click += new System.EventHandler(this.NeutralPositionStopSetManuallyButtonClick);
             // 
             // groupBox1
             // 

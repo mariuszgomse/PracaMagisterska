@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Globalization;
 using System.Windows.Forms;
@@ -13,8 +12,8 @@ namespace BrainActivityMonitor
         SettingsForm _settingsForm;
         EmoEngine _engine;
         SensorsManager _sm;
-        private bool NeutralPositionReading = false;
-        private bool IsDataFromCSV = false;
+        private bool _neutralPositionReading;
+        private bool _isDataFromCsv;
         private CsvManager _csvManager;
 
         public BrainActivityMonitorForm()
@@ -27,7 +26,7 @@ namespace BrainActivityMonitor
             _engine = EmoEngine.Instance;
             _engine.EmoEngineConnected += EngineEmoEngineConnected;
             _engine.EmoEngineDisconnected += EngineEmoEngineDisconnected;
-            _engine.UserAdded += engine_UserAdded;
+            _engine.UserAdded += EngineUserAdded;
             _engine.UserRemoved += engine_UserRemoved;
             _engine.EmoStateUpdated += EngineEmoStateUpdated;
             ConnectToEmoEngine();
@@ -54,13 +53,13 @@ namespace BrainActivityMonitor
                     var data = eegData[channel];
                     sensor.Value = data[data.Length-1];
                     sensor.Values = data;
-                    if (NeutralPositionReading)
+                    if (_neutralPositionReading)
                     {
                         sensor.Statistics.AddValue(sensor.Value);
-                        sensor.Statistics.addValues(sensor.Values);
+                        sensor.Statistics.AddValues(sensor.Values);
                     }
                     _sm.DrawSensor();
-                } catch(Exception exc)
+                } catch (Exception)
                 {
                     
                 }
@@ -72,7 +71,7 @@ namespace BrainActivityMonitor
             var eegData = _csvManager.GetData();
             if (eegData == null)
             {
-                IsDataFromCSV = false;
+                _isDataFromCsv = false;
                 statusStrip1.Text = "Csv data read - normal mode on";
                 MessageBox.Show("Csv data read end");
                 return;
@@ -86,10 +85,10 @@ namespace BrainActivityMonitor
                     var data = eegData[channel];
                     sensor.Value = data[data.Length - 1];
                     sensor.Values = data;
-                    if (NeutralPositionReading)
+                    if (_neutralPositionReading)
                     {
                         sensor.Statistics.AddValue(sensor.Value);
-                        sensor.Statistics.addValues(sensor.Values);
+                        sensor.Statistics.AddValues(sensor.Values);
                     }
                     _sm.DrawSensor();
                 }
@@ -121,7 +120,7 @@ namespace BrainActivityMonitor
             throw new NotImplementedException();
         }
 
-        void engine_UserAdded(object sender, EmoEngineEventArgs e)
+        void EngineUserAdded(object sender, EmoEngineEventArgs e)
         {
             _engine.DataAcquisitionEnable(e.userId, true);
         }
@@ -164,7 +163,7 @@ namespace BrainActivityMonitor
 
         private void Timer1Tick(object sender, EventArgs e)
         {
-            if (!IsDataFromCSV)
+            if (!_isDataFromCsv)
             {
                 _engine.ProcessEvents();
             } else
@@ -174,19 +173,18 @@ namespace BrainActivityMonitor
            
         }
 
-        private void neutralPositionSetManuallyButton_Click(object sender, EventArgs e)
+        private void NeutralPositionSetManuallyButtonClick(object sender, EventArgs e)
         {
-            NeutralPositionReading = true;
+            _neutralPositionReading = true;
             neutralPositionSetManuallyButton.Visible = false;
             neutralPositionStopSetManuallyButton.Visible = true;
         }
 
-        private void neutralPositionStopSetManuallyButton_Click(object sender, EventArgs e)
+        private void NeutralPositionStopSetManuallyButtonClick(object sender, EventArgs e)
         {
-            NeutralPositionReading = false;
+            _neutralPositionReading = false;
             neutralPositionStopSetManuallyButton.Visible = false;
             neutralPositionSetManuallyButton.Visible = true;
-            int yCounter = 20;
             foreach (Sensor sensor in _sm.Sensors.Keys)
             {
                 sensor.Statistics.CalculateAverage();
@@ -204,12 +202,9 @@ namespace BrainActivityMonitor
             {
                 if (!sensor.IsReference)
                 {
-                    Label label = new Label();
-                    label.Text = sensor.Name.ToString();
-                    label.Location = new Point(10, yCounter);
+                    var label = new Label {Text = sensor.Name.ToString(), Location = new Point(10, yCounter)};
                     groupBox1.Controls.Add(label);
-                    label = new Label();
-                    label.Text = sensor.Statistics.dataAverage.ToString(CultureInfo.InvariantCulture);
+                    label = new Label {Text = sensor.Statistics.DataAverage.ToString(CultureInfo.InvariantCulture)};
                     if (label.Text.Length > 6)
                     {
                         label.Text = label.Text.Remove(6);
@@ -221,7 +216,7 @@ namespace BrainActivityMonitor
             }
         }
 
-        private void epocToolStripMenuItem_Click(object sender, EventArgs e)
+        private void EpocToolStripMenuItemClick(object sender, EventArgs e)
         {
             if (epocToolStripMenuItem.Checked) return;
             
@@ -284,7 +279,7 @@ namespace BrainActivityMonitor
 
         private void PlayLoadedCsvButtonClick1(object sender, EventArgs e)
         {
-            IsDataFromCSV = true;
+            _isDataFromCsv = true;
         }
 
         private void LoadCsv()

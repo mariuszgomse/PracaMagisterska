@@ -16,7 +16,6 @@ namespace BrainActivityMonitor
         public Dictionary<Sensor, SensorDisplayInfo> Sensors { get; set; }
         private readonly PictureBox _pictureBox;
         private readonly Font _font;
-        readonly List<double> _values = new List<double>();
 
         public SensorsManager(PictureBox pictureBox)
         {
@@ -44,27 +43,18 @@ namespace BrainActivityMonitor
                 
                 sensorName = sensorName.Replace(Resources.SensorPrefix, "");
                 e.Graphics.DrawString(sensorName, _font, Brushes.DimGray, sensorX + 3, sensorY + 33);
-                
-                var valueString = sensor.Value.ToString(CultureInfo.InvariantCulture);
-                if (sensor.Statistics.isAverageForDataCalculated)
+
+                if (sensor.Statistics.IsAverageForDataCalculated)
                 {
-                    sensorDisplayInfo.Brush = GetBrush(sensor.Values, sensor.Statistics.dataAverage);
+                    sensorDisplayInfo.Brush = GetBrush(sensor.Values, sensor.Statistics.DataAverage);
                 }
                 e.Graphics.FillEllipse(sensorDisplayInfo.Brush, sensorDisplayInfo.Rectangle);
-                //try
-                //{
-                //    valueString = valueString.Remove(6);
-                //} catch(Exception exc)
-                //{
-                    
-                //}
-                //e.Graphics.DrawString(valueString, _font, Brushes.Black, sensorX + 8, sensorY + 10);
             }
         }
 
         private Brush GetBrush(double[] sensorData, double sensorAverage)
         {
-            double[] sensorDataAbs = new double[sensorData.Length];
+            var sensorDataAbs = new double[sensorData.Length];
             for (int i = 0; i < sensorData.Length; i++)
             {
                 sensorDataAbs[i] = Math.Abs(sensorData[i]);
@@ -111,23 +101,19 @@ namespace BrainActivityMonitor
             {
                 throw new Exception("Nie można odczytać danych wejściowych o sensorach!");
             }
-            else
+            foreach (XmlNode node in doc.DocumentElement.ChildNodes)
             {
-                foreach (XmlNode node in doc.DocumentElement.ChildNodes)
-                {
-                    // ReSharper disable PossibleNullReferenceException
-                    int x = Int32.Parse(node.SelectSingleNode("x").InnerText);
-                    int y = Int32.Parse(node.SelectSingleNode("y").InnerText);
-                    int width = Int32.Parse(node.SelectSingleNode("width").InnerText);
-                    int height = Int32.Parse(node.SelectSingleNode("height").InnerText);
-                    bool isReference = Boolean.Parse(node.SelectSingleNode("isReference").InnerText);
-                    var sensorDisplayInfo = new SensorDisplayInfo(x, y, width, height);
-                    var name = Resources.SensorPrefix + node.SelectSingleNode("name").InnerText;
-                    var sensor = new Sensor(name);
-                    sensor.IsReference = isReference;
-                    Sensors.Add(sensor, sensorDisplayInfo);
-                    // ReSharper restore PossibleNullReferenceException
-                }
+                // ReSharper disable PossibleNullReferenceException
+                int x = Int32.Parse(node.SelectSingleNode("x").InnerText);
+                int y = Int32.Parse(node.SelectSingleNode("y").InnerText);
+                int width = Int32.Parse(node.SelectSingleNode("width").InnerText);
+                int height = Int32.Parse(node.SelectSingleNode("height").InnerText);
+                bool isReference = Boolean.Parse(node.SelectSingleNode("isReference").InnerText);
+                var sensorDisplayInfo = new SensorDisplayInfo(x, y, width, height);
+                var name = Resources.SensorPrefix + node.SelectSingleNode("name").InnerText;
+                var sensor = new Sensor(name) {IsReference = isReference};
+                Sensors.Add(sensor, sensorDisplayInfo);
+                // ReSharper restore PossibleNullReferenceException
             }
         }
 

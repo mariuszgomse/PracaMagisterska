@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.IO;
-using System.Linq;
-using System.Text;
 using Emotiv;
 
 namespace BrainActivityMonitor
@@ -26,11 +25,11 @@ namespace BrainActivityMonitor
 
         public string Name;
 
-        public int readData()
+        public int ReadData()
         {
-            String line = ReadLine(); //labels line
+            ReadLine(); //labels line
 
-            line = ReadLine();
+            String line = ReadLine();
             while (line != null)
             {
                 string[] values = line.Split(',');
@@ -44,6 +43,7 @@ namespace BrainActivityMonitor
             List<double> tmp;
             SensorValues.TryGetValue(2, out tmp);
             IsRead = true;
+            Debug.Assert(tmp != null, "tmp != null");
             return tmp.Count;
         }
 

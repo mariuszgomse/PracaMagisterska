@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Windows.Forms;
 using BrainActivityMonitor.Properties;
 using Emotiv;
@@ -12,8 +11,8 @@ namespace BrainActivityMonitor
         private readonly OpenFileDialog _openCsvFileDialog;
         private CsvEpocFileReader _reader;
         const int BufferSize = 256;
-        private int _start = 0;
-        private bool _end = false;
+        private int _start;
+        private bool _end;
 
         public CsvManager()
         {
@@ -22,8 +21,6 @@ namespace BrainActivityMonitor
 
         public int LoadFile(string fileName = null)
         {
-            const int fileNotLoadedReturnValue = -1;
-
             if (fileName == null)
             {
                 DialogResult result = _openCsvFileDialog.ShowDialog();
@@ -38,7 +35,7 @@ namespace BrainActivityMonitor
             }
 
             _reader = new CsvEpocFileReader(fileName);
-            var rowsRead = _reader.readData();
+            var rowsRead = _reader.ReadData();
             
             _start = 0;
             _end = false;

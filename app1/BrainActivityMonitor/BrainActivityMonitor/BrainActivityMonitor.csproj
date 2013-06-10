@@ -54,7 +54,6 @@
     <Compile Include="SensorDisplayInfo.cs" />
     <Compile Include="SensorsManager.cs" />
     <Compile Include="SensorStatistics.cs" />
-    <Compile Include="SensorView.cs" />
     <Compile Include="BrainActivityMonitorForm.cs">
       <SubType>Form</SubType>
     </Compile>
