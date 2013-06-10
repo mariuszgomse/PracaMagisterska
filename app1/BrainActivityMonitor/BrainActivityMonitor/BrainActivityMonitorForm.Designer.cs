@@ -52,10 +52,13 @@
             this.csvControlGroupBox = new System.Windows.Forms.GroupBox();
             this.loadCSVButton = new System.Windows.Forms.Button();
             this.PlayLoadedCsvButton = new System.Windows.Forms.Button();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.csvControlGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -220,11 +223,13 @@
             // 
             // csvControlGroupBox
             // 
+            this.csvControlGroupBox.Controls.Add(this.label1);
+            this.csvControlGroupBox.Controls.Add(this.trackBar1);
             this.csvControlGroupBox.Controls.Add(this.loadCSVButton);
             this.csvControlGroupBox.Controls.Add(this.PlayLoadedCsvButton);
             this.csvControlGroupBox.Location = new System.Drawing.Point(577, 147);
             this.csvControlGroupBox.Name = "csvControlGroupBox";
-            this.csvControlGroupBox.Size = new System.Drawing.Size(209, 97);
+            this.csvControlGroupBox.Size = new System.Drawing.Size(209, 225);
             this.csvControlGroupBox.TabIndex = 12;
             this.csvControlGroupBox.TabStop = false;
             this.csvControlGroupBox.Text = "Csv Control Panel";
@@ -232,7 +237,7 @@
             // 
             // loadCSVButton
             // 
-            this.loadCSVButton.Location = new System.Drawing.Point(20, 70);
+            this.loadCSVButton.Location = new System.Drawing.Point(17, 204);
             this.loadCSVButton.Name = "loadCSVButton";
             this.loadCSVButton.Size = new System.Drawing.Size(171, 21);
             this.loadCSVButton.TabIndex = 14;
@@ -249,6 +254,24 @@
             this.PlayLoadedCsvButton.TabIndex = 13;
             this.PlayLoadedCsvButton.UseVisualStyleBackColor = true;
             this.PlayLoadedCsvButton.Click += new System.EventHandler(this.PlayLoadedCsvButtonClick1);
+            // 
+            // trackBar1
+            // 
+            this.trackBar1.Enabled = false;
+            this.trackBar1.Location = new System.Drawing.Point(17, 70);
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Size = new System.Drawing.Size(171, 45);
+            this.trackBar1.TabIndex = 15;
+            this.trackBar1.ValueChanged += new System.EventHandler(this.trackBar1_ValueChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(83, 101);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "label1";
             // 
             // BrainActivityMonitorForm
             // 
@@ -273,6 +296,8 @@
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.csvControlGroupBox.ResumeLayout(false);
+            this.csvControlGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -302,6 +327,8 @@
         private System.Windows.Forms.GroupBox csvControlGroupBox;
         private System.Windows.Forms.Button loadCSVButton;
         private System.Windows.Forms.Button PlayLoadedCsvButton;
+        private System.Windows.Forms.TrackBar trackBar1;
+        private System.Windows.Forms.Label label1;
 
 
     }

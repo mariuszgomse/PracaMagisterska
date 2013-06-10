@@ -10,7 +10,7 @@ namespace BrainActivityMonitor
     {
         private readonly OpenFileDialog _openCsvFileDialog;
         private CsvEpocFileReader _reader;
-        const int BufferSize = 256;
+        public const int BufferSize = 256;
         private int _start;
         private bool _end;
 

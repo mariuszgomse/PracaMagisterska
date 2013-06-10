@@ -97,6 +97,13 @@ namespace BrainActivityMonitor
 
                 }
             }
+            try
+            {
+                trackBar1.Value++;
+            } catch
+            {
+                
+            }
         }
 
         private void ConnectToEmoEngine()
@@ -286,8 +293,17 @@ namespace BrainActivityMonitor
         {
             var csvManager = GetCsvManager();
             var rowsLoaded = csvManager.LoadFile();
+            int i = rowsLoaded/CsvManager.BufferSize;
+            trackBar1.Value = 0;
+            trackBar1.SetRange(0, i);
+            label1.Text = trackBar1.Value.ToString();
             MessageBox.Show(string.Format("{0} rows loaded", rowsLoaded));
             toolStripStatusLabel1.Text = string.Format("{0} read", csvManager.GetLoadedFileName());
+        }
+
+        private void trackBar1_ValueChanged(object sender, EventArgs e)
+        {
+            label1.Text = trackBar1.Value.ToString();
         }
     }
 }
