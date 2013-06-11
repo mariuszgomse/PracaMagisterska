@@ -102,6 +102,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\player_play.png" />
+    <None Include="Resources\button_pause_blue.png" />
+    <None Include="Resources\player_pause.png" />
+    <None Include="Resources\player_pause %281%29.png" />
+    <None Include="Resources\player_pause %282%29.png" />
+    <None Include="Resources\player_stop %281%29.png" />
     <Content Include="SensorsData.xml" />
     <Content Include="TODO.txt" />
   </ItemGroup>

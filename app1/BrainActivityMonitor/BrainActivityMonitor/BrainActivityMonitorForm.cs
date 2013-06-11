@@ -97,9 +97,13 @@ namespace BrainActivityMonitor
 
                 }
             }
+            
             try
             {
-                trackBar1.Value++;
+                if (timer1.Enabled)
+                {
+                    trackBar1.Value++;    
+                }
             } catch
             {
                 
@@ -170,12 +174,12 @@ namespace BrainActivityMonitor
 
         private void Timer1Tick(object sender, EventArgs e)
         {
-            if (!_isDataFromCsv)
-            {
-                _engine.ProcessEvents();
-            } else
+            if (_isDataFromCsv)
             {
                 ProcessCsvData();
+            } else
+            {
+                _engine.ProcessEvents();
             }
            
         }
@@ -229,6 +233,8 @@ namespace BrainActivityMonitor
             
             SetEpocToolStripMenuItemChecked();
             csvControlGroupBox.Visible = false;
+            timer1.Enabled = true;
+            _isDataFromCsv = false;
         }
 
         private void CsvToolStripMenuItemClick(object sender, EventArgs e)
@@ -248,6 +254,7 @@ namespace BrainActivityMonitor
                 LoadCsv();
                 SetCsvToolStripMenuItemChecked();
                 csvControlGroupBox.Visible = true;
+                timer1.Enabled = false;
             }
             catch (Exception exception)
             {
@@ -287,23 +294,54 @@ namespace BrainActivityMonitor
         private void PlayLoadedCsvButtonClick1(object sender, EventArgs e)
         {
             _isDataFromCsv = true;
+            timer1.Enabled = true;
+            trackBar1.Enabled = false;
         }
 
         private void LoadCsv()
         {
             var csvManager = GetCsvManager();
             var rowsLoaded = csvManager.LoadFile();
-            int i = rowsLoaded/CsvManager.BufferSize;
+            double i = Math.Ceiling((double)rowsLoaded/CsvManager.BufferSize);
             trackBar1.Value = 0;
-            trackBar1.SetRange(0, i);
-            label1.Text = trackBar1.Value.ToString();
+            trackBar1.SetRange(0, (int)i);
+            label1.Text = trackBar1.Value.ToString(CultureInfo.InvariantCulture);
             MessageBox.Show(string.Format("{0} rows loaded", rowsLoaded));
             toolStripStatusLabel1.Text = string.Format("{0} read", csvManager.GetLoadedFileName());
         }
 
-        private void trackBar1_ValueChanged(object sender, EventArgs e)
+        private void TrackBar1ValueChanged(object sender, EventArgs e)
         {
-            label1.Text = trackBar1.Value.ToString();
+            label1.Text = trackBar1.Value.ToString(CultureInfo.InvariantCulture);
+        }
+
+        private void Button1Click(object sender, EventArgs e)
+        {
+            timer1.Enabled = false;
+            trackBar1.Enabled = true;
+        }
+
+        private void Button2Click(object sender, EventArgs e)
+        {
+            timer1.Enabled = false;
+            var csvManager = GetCsvManager();
+            csvManager.Reset();
+            trackBar1.Value = 0;
+            trackBar1.Enabled = true;
+        }
+
+        private void TrackBar1Scroll(object sender, EventArgs e)
+        {
+            timer1.Enabled = false;
+            var csvManager = GetCsvManager();
+            var value = trackBar1.Value == 0 ? 1 : trackBar1.Value;
+            var startPosition = (value-1) * CsvManager.BufferSize;
+            csvManager.Start = startPosition;
+            if (trackBar1.Value < trackBar1.Maximum && csvManager.End)
+            {
+                csvManager.End = false;
+            }
+            ProcessCsvData();
         }
     }
 }

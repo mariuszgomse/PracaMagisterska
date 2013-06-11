@@ -50,10 +50,12 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.csvControlGroupBox = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.loadCSVButton = new System.Windows.Forms.Button();
             this.PlayLoadedCsvButton = new System.Windows.Forms.Button();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
-            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.statusStrip1.SuspendLayout();
@@ -158,6 +160,7 @@
             // timer1
             // 
             this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.Timer1Tick);
             // 
             // NeutralPositionIsSetLabel
@@ -223,6 +226,8 @@
             // 
             // csvControlGroupBox
             // 
+            this.csvControlGroupBox.Controls.Add(this.button2);
+            this.csvControlGroupBox.Controls.Add(this.button1);
             this.csvControlGroupBox.Controls.Add(this.label1);
             this.csvControlGroupBox.Controls.Add(this.trackBar1);
             this.csvControlGroupBox.Controls.Add(this.loadCSVButton);
@@ -234,6 +239,46 @@
             this.csvControlGroupBox.TabStop = false;
             this.csvControlGroupBox.Text = "Csv Control Panel";
             this.csvControlGroupBox.Visible = false;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Transparent;
+            this.button2.Image = global::BrainActivityMonitor.Properties.Resources.player_stop__1_;
+            this.button2.Location = new System.Drawing.Point(127, 20);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(49, 44);
+            this.button2.TabIndex = 18;
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.Button2Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.Image = global::BrainActivityMonitor.Properties.Resources.player_pause__2_;
+            this.button1.Location = new System.Drawing.Point(72, 19);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(49, 44);
+            this.button1.TabIndex = 17;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.Button1Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(83, 101);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "label1";
+            // 
+            // trackBar1
+            // 
+            this.trackBar1.Location = new System.Drawing.Point(17, 70);
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Size = new System.Drawing.Size(171, 45);
+            this.trackBar1.TabIndex = 15;
+            this.trackBar1.Scroll += new System.EventHandler(this.TrackBar1Scroll);
+            this.trackBar1.ValueChanged += new System.EventHandler(this.TrackBar1ValueChanged);
             // 
             // loadCSVButton
             // 
@@ -247,31 +292,14 @@
             // 
             // PlayLoadedCsvButton
             // 
+            this.PlayLoadedCsvButton.BackColor = System.Drawing.Color.Transparent;
             this.PlayLoadedCsvButton.Image = global::BrainActivityMonitor.Properties.Resources.player_play;
-            this.PlayLoadedCsvButton.Location = new System.Drawing.Point(83, 20);
+            this.PlayLoadedCsvButton.Location = new System.Drawing.Point(17, 20);
             this.PlayLoadedCsvButton.Name = "PlayLoadedCsvButton";
             this.PlayLoadedCsvButton.Size = new System.Drawing.Size(49, 44);
             this.PlayLoadedCsvButton.TabIndex = 13;
-            this.PlayLoadedCsvButton.UseVisualStyleBackColor = true;
+            this.PlayLoadedCsvButton.UseVisualStyleBackColor = false;
             this.PlayLoadedCsvButton.Click += new System.EventHandler(this.PlayLoadedCsvButtonClick1);
-            // 
-            // trackBar1
-            // 
-            this.trackBar1.Enabled = false;
-            this.trackBar1.Location = new System.Drawing.Point(17, 70);
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(171, 45);
-            this.trackBar1.TabIndex = 15;
-            this.trackBar1.ValueChanged += new System.EventHandler(this.trackBar1_ValueChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(83, 101);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 16;
-            this.label1.Text = "label1";
             // 
             // BrainActivityMonitorForm
             // 
@@ -329,6 +357,8 @@
         private System.Windows.Forms.Button PlayLoadedCsvButton;
         private System.Windows.Forms.TrackBar trackBar1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
 
 
     }

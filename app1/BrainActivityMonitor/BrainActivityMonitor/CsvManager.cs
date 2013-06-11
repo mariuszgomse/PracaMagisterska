@@ -11,8 +11,8 @@ namespace BrainActivityMonitor
         private readonly OpenFileDialog _openCsvFileDialog;
         private CsvEpocFileReader _reader;
         public const int BufferSize = 256;
-        private int _start;
-        private bool _end;
+        public int Start { get; set; }
+        public bool End { get; set; }
 
         public CsvManager()
         {
@@ -37,8 +37,8 @@ namespace BrainActivityMonitor
             _reader = new CsvEpocFileReader(fileName);
             var rowsRead = _reader.ReadData();
             
-            _start = 0;
-            _end = false;
+            Start = 0;
+            End = false;
 
             return rowsRead;
         }
@@ -65,7 +65,7 @@ namespace BrainActivityMonitor
 
         public Dictionary<EdkDll.EE_DataChannel_t, double[]> GetData()
         {
-            if (_end)
+            if (End)
             {
                 return null;
             }
@@ -76,26 +76,32 @@ namespace BrainActivityMonitor
                 double[] sensorData = _reader.SensorValues[key].ToArray();
                 var returnSensorData = new double[BufferSize];
                 int counter = 0;
-                for (int i = _start; i < _start + BufferSize && i < sensorData.Length && counter < BufferSize; i++)
+                for (int i = Start; i < Start + BufferSize && i < sensorData.Length && counter < BufferSize; i++)
                 {
                     returnSensorData[counter++] = sensorData[i];
                     if (i+1 == sensorData.Length)
                     {
-                        _end = true;
+                        End = true;
                     }
                 }
                 data.Add(_reader.GetChannel(key), returnSensorData);
             }
 
-            if (!_end)
+            if (!End)
             {
-                _start = _start + BufferSize;
+                Start = Start + BufferSize;
             } else
             {
-                _start = -1;
+                Start = -1;
             }
 
             return data;
+        }
+
+        public void Reset()
+        {
+            Start = 0;
+            End = false;
         }
     }
 }
